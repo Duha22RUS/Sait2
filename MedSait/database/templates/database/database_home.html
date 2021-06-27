@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}База данных{% endblock %}
+{% block body %}
+<div class="search-bar w3layouts-newsletter">
+    <h3 class="sear-head editContent">Поиск пациента</h3>
+    <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+        <input type="text" placeholder="Введите" name="q" class="form-control" required="">
+        <button type="submit" class="btn1 btn">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+    </form>
+</div>
+    {% for el in database %}
+        <div class="sear-head editContent">
+            <h3>{{ el.name }}</h3>
+                <a href="{% url 'add_complaints' %}"><button type="submit" class="btn btn-success">Провести анкетирование</button></a>
+            <button type="submit" class="btn btn-warning">Редактировать анкетирование</button>
+            <button type="submit" class="btn btn-danger">Удалить анкетирование</button>
+            {{ complaint }}
+        </div>
+    {% endfor %}
+{{ complaint }}
+{{ complaint_list }}
+{% endblock %}

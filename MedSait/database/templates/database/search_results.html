@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Результаты поиска{% endblock %}
+
+{% block body %}
+    <h1>Результаты поиска</h1>
+
+  {% for Articles in object_list %}
+    <ul>
+      {{ Articles.name }}
+      <a href="{% url 'add_complaints' %}"><button type="submit" class="btn btn-success">Провести анкетирование</button></a>
+      <button type="submit" class="btn btn-warning">Редактировать анкетирование</button>
+      <button type="submit" class="btn btn-danger">Удалить анкетирование</button>
+      {{ complaint }}
+    </ul>
+  {% endfor %}
+{% endblock %}

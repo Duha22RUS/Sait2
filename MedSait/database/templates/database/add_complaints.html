@@ -1,0 +1,164 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Анкетирование{% endblock %}
+
+{% block body %}
+    <div class="add">
+        <h1>Добавление нового анкетирования</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>Фамилия Имя Отчество: {{ form.name2 }}</p>
+            <p>Дата приёма: {{ form.date_receipt }}</p>
+            <span>{{ error }}</span>
+        </form>
+
+
+        <div class="tabs">
+    <input type="radio" name="inset" value="" id="tab_1" checked>
+    <label for="tab_1">Жалобы</label>
+
+    <input type="radio" name="inset" value="" id="tab_2">
+    <label for="tab_2">У родственников</label>
+
+    <input type="radio" name="inset" value="" id="tab_3">
+    <label for="tab_3">Перенесенные заболевания/Сопутствующие заболевания/Соматические заболевания</label>
+
+    <input type="radio" name="inset" value="" id="tab_4">
+    <label for="tab_4">Патология развития соединительной ткани</label>
+
+    <input type="radio" name="inset" value="" id="tab_5">
+    <label for="tab_5">Основная форма</label>
+
+    <input type="radio" name="inset" value="" id="tab_6">
+    <label for="tab_6">Аллергологический анамнез/Гинекологический анамнез</label>
+
+    <input type="radio" name="inset" value="" id="tab_7">
+    <label for="tab_7">Клинический анализ крови</label>
+
+    <input type="radio" name="inset" value="" id="tab_8">
+    <label for="tab_8">Коагулограмма</label>
+
+    <input type="radio" name="inset" value="" id="tab_9">
+    <label for="tab_9">Биохимия крови</label>
+
+    <input type="radio" name="inset" value="" id="tab_10">
+    <label for="tab_10">Исследование полиморфных вариантов генов системы гемостаза</label>
+
+    <input type="radio" name="inset" value="" id="tab_11">
+    <label for="tab_11">Полиморфные варианты генов фолатного метаболизма</label>
+
+    <div id="txt_1">
+        <form method="post">
+            {% csrf_token %}
+            <p>Носовые кровотечения: {{ form.nosebleeds }}</p>
+            <p>Количество носовых кровотечений в месяц: {{ form.nosebleeds_per_month }}</p>
+            <p>Обильные месячные: {{ form.abundant_periods }}</p>
+            <p>Кровоточивость дёсен: {{ form.bleeding_gums }}</p>
+            <p>Синячковость: {{ form.bruising }}</p>
+            <p>Другая кровоточивость: {{ form.other_bleeding }}</p>
+            <p>Длительность кровоточивости(мин): {{ form.duration_of_bleeding }}</p>
+            <p>Обмороки: {{ form.fainting }}</p>
+            <p>Головокружения: {{ form.dizziness }}</p>
+            <p>Боль в области сердца: {{ form.heart_pain }}</p>
+            <p>Другие: {{ form.others }}</p>
+            <p>Первое появление, возраст: {{ form.first_appearance }}</p>
+            <p>Провокация носовых кровотечений: {{ form.provocation_of_nosebleeds }}</p>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+    <div id="txt_2">
+        <form method="post">
+            {% csrf_token %}
+            <p>Носовые кровотечения: {{ form.nosebleeds }}</p>
+            <p>Обильные месячные: {{ form.abundant_periods }}</p>
+            <p>Кровоточивость дёсен: {{ form.bleeding_gums }}</p>
+            <p>Синячковость: {{ form.bruising }}</p>
+            <p>Другая кровоточивость: {{ form.other_bleeding }}</p>
+            <p>Был ли у отца инфаркт, инсульт, тромбоз до 55 лет: {{ form.father_infarct }}</p>
+            <p>Был ли у матери инфаркт, инсульт, тромбоз до 65 лет: {{ form.mother_infarct }}</p>
+            <p>Был ли у деда/бабушки инфаркт, инсульт, тромбоз, до 65 лет: {{ form.grand_infarct }}</p>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+    <div id="txt_3">
+        <form method="post">
+            {% csrf_token %}
+            <p>Инфаркт миокарда: {{ form.myocardial_infarction }}</p>
+            <p>Инсульт (ТИА, ОНМК): {{ form.stroke }}</p>
+            <p>Тромбозы: {{ form.thrombosis }}</p>
+            <p>Операции на сердце и сосудах: {{ form.heart_surgery }}</p>
+
+            <p>Онкологическое заболевание: {{ form.cancer_disease }}</p>
+            <p>Гипертоническая болезнь: {{ form.hypertonic_disease }}</p>
+            <p>Перебои в работе сердца: {{ form.work_of_the_heart }}</p>
+            <p>Фибрилляция предсердий: {{ form.atrial_fibrillation }}</p>
+            <p>Сахарный диабет: {{ form.diabetes }}</p>
+            <p>Варикозная болезнь: {{ form.varicose_veins }}</p>
+            <p>Плоскостопие/гипермобильность суставов: {{ form.flat_feet }}</p>
+            <p>Обмороки: {{ form.fainting2 }}</p>
+            <p>Головокружения: {{ form.dizziness2 }}</p>
+            <p>Ожирение: {{ form.obesity }}</p>
+
+            <p>Бронхиальная астма: {{ form.bronchial_asthma }}</p>
+            <p>ОРИ > 4 раз в год: {{ form.ari_times_a_year }}</p>
+            <p>Заболевания щитовидной железы: {{ form.diseases_of_the_thyroid_gland }}</p>
+            <p>Хронический пиелонефрит: {{ form.chronic_pyelonephritis }}</p>
+            <p>Хронический гастрит: {{ form.chronic_gastritis }}</p>
+            <p>Аритмия: {{ form.arrhythmia }}</p>
+            <p>Вегето-сосудистая дистония: {{ form.vegetovascular_dystonia }}</p>
+            <p>Мигрени: {{ form.migraine }}</p>
+            <p>Остеохондроз: {{ form.osteochondrosis }}</p>
+            <p>Выпадение полей зрения: {{ form.loss_of_visual_fields }}</p>
+            <p>Пороки сердца: {{ form.heart_defects }}</p>
+            <p>Нейроэндокринный синдром: {{ form.neuroendocrine_syndrome }}</p>
+            <p>Хронический тонзиллит: {{ form.chronic_tonsillitis }}</p>
+            <p>Миокардиодистрофия: {{ form.myocardial_dystrophy }}</p>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+    <div id="txt_4">
+        <div class="add">
+            <form method="post">
+                {% csrf_token %}
+                <span>{{ error }}</span>
+                <button class="btn btn-success" type="submit">Вывести результаты анкетирования</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+        <style type="text/css">
+.tabs { width: 100%; padding: 0px; margin: 0 auto; }
+.tabs>input { display: none; }
+.tabs>div {
+    display: none;
+    padding: 12px;
+    border: 1px solid #C0C0C0;
+    background: #FFFFFF;
+}
+.tabs>label {
+    display: inline-block;
+    padding: 7px;
+    margin: 0 -5px -1px 0;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+.tabs>input:checked + label {
+    color: #000000;
+    border: 1px solid #C0C0C0;
+    border-bottom: 1px solid #FFFFFF;
+    background: #00BCAF;
+}
+#tab_1:checked ~ #txt_1,
+#tab_2:checked ~ #txt_2,
+#tab_3:checked ~ #txt_3,
+#tab_4:checked ~ #txt_4 { display: block; }
+</style>
+    </div>
+{% endblock %}
